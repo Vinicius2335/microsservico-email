@@ -1,4 +1,4 @@
-package com.ms.email.dtos;
+package com.ms.email.api.representation.model;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class EmailDto {
+public class EmailRequest {
 
 	@NotBlank
 	private String ownerRef;
