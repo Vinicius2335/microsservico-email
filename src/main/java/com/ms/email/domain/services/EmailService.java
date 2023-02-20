@@ -1,10 +1,13 @@
 package com.ms.email.domain.services;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
 import com.ms.email.api.representation.model.EmailRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -49,5 +52,9 @@ public class EmailService {
             emailSaved = emailRepository.save(emailModel);
         }
         return emailSaved;
+    }
+
+    public Page<EmailModel> getAllEmails(Pageable pageable){
+        return emailRepository.findAll(pageable);
     }
 }
